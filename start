@@ -1,0 +1,2 @@
+def start():
+	print("You have finally done it, after all the years of study and exploration, \t after all the money spent, after all those that left you and betrayed you. Here you stand in front of King Hillmoris tomb.")
