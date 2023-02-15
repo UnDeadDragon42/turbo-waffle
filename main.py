@@ -1,4 +1,4 @@
-import start
+import intoSeqence
 #def main():
-print("HERE WE ARE")
-start.main()
+#print("HERE WE ARE")
+intoSeqence.main()
