@@ -1,3 +1,4 @@
-def main():
-	print("HERE WE ARE")
-	start.main()
+import start
+#def main():
+print("HERE WE ARE")
+start.main()
