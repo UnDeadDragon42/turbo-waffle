@@ -4,6 +4,7 @@ playersLokation = "outside"
 class Rooms():
 	def __init__(self):
 		self.name = "room"
+		self.number = 0
 		self.directions = {}
 		self.objects = []
 		self.objectDesriptions = []
@@ -11,7 +12,8 @@ class Rooms():
 		self.hints = []
 
 outside = Rooms()
-outside.name = outside
+outside.name = "outside"
+outside.number = 1
 outside.directions = "forward"
 outside.objects = "key"
 outside.objectDesriptions = "Rusty circular key, it looks like it has been covered up for a very long time"
@@ -19,3 +21,7 @@ outside.roomdescriptions = {"You stand befor the tome of King Movieses. In front
 outside.hints = ["I wonder where the key could be?", "There is a lot of sand", "If only I could move it out of the way."]
 
 mainHall = Rooms()
+mainHall.name = "main hall"
+mainHall.number = 2
+mainHall.directions = {"forward", "backward"}
+mainHall.roomdescriptions = {"You stand in the main hall of the tomb. From here WRITE THE DIRECTIONS"}
