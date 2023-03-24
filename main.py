@@ -3,7 +3,14 @@ import userActions
 #def main():
 #print("HERE WE ARE")
 intoSeqence.main()
-
+actions = ('''
+	quit/q - Quit out of the game
+	load/l - loads last save file
+	search/s - searches room for items and gets the object 
+	use/u - uses iteam in inventorty
+	hint/h - gives hint in room
+	map/m - lists rooms you have visted with there avalible movments
+''')
 userIn = input("What do you do?\n")
 
 if userIn == "help":
