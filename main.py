@@ -12,7 +12,7 @@ actions = ('''
 	map/m - lists rooms you have visted with there avalible movments
 ''')
 
-while userIn != "quit":# or userIn != "q":
+while userIn != "quit" or userIn != "q":
 	userIn = input("What do you do?\n")
 	if userIn == "help":
 		userActions.printActions()
@@ -21,3 +21,4 @@ while userIn != "quit":# or userIn != "q":
 		print("You found a key after digging in the sand")
 	elif userIn != 'quit':
 		print("Type 'help' for list of commands")
+	print(userIn)
