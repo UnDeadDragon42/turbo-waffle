@@ -1,6 +1,7 @@
 import intoSeqence
 import userActions
 userIn = ""
+quit = ("quit", "q")
 intoSeqence.main()
 actions = ('''
 	quit/q - Quit out of the game
@@ -12,7 +13,7 @@ actions = ('''
 	map/m - lists rooms you have visted with there avalible movments
 ''')
 
-while userIn != "quit" or userIn != "q":
+while userIn not in quit:
 	userIn = input("What do you do?\n")
 	if userIn == "help":
 		userActions.printActions()
