@@ -26,10 +26,10 @@ watingR = Rooms("wating room", 3)
 watingR.directions = {"north", "south"}
 
 dinnH = Rooms("dinning hall", 4)
-dinnH.directions{"north", "east", "south"}
+dinnH.directions = {"north", "east", "south"}
 
 hiddenR = Rooms("hidden room", 5)
-hiddenR.directions("north")
+hiddenR.directions = {"north"}
 
 obserR = Rooms("observertory", 6)
 
