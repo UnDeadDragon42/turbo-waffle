@@ -13,12 +13,13 @@ class Player():
 	def location(self, new):
 		self.__location = new
 
+	#moves the player to different rooms
 	def MovePlayer(self, direction):
 		for c in rooms.totalRooms:
 			if self.__location == c.name:
 				if direction in c.directions:
-					print("YAS QUEEN")
-		print(F" vs {self.__location}")
+					print(c.directions[0])
+
 
 
 
