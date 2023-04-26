@@ -29,7 +29,7 @@ while userIn not in quit:
 		print("You found a key after digging in the sand")
 	elif userIn == "move":
 		direction = input("What direction? (N, E, S, W)")
-		player.MovePlayer(direction, user.location)
+		user.MovePlayer(direction)
 	elif userIn != 'quit':
 		print("Type 'help' for list of commands")
 	print(userIn)
