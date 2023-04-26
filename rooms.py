@@ -36,3 +36,4 @@ obserR = Rooms("observertory", 6)
 waterR = Rooms("water room", 7)
 
 tomb = Rooms("tomb", 8)
+

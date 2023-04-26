@@ -16,13 +16,9 @@ actions = ('''
 	map/m - lists rooms you have visted with there avalible movments
 ''')
 
-player = player.Player()
+user = player.Player()
 
-def MovePlayer(direction):
-	currLocation = player.location
-	print(currLocation)
-	avalibleMoves = rooms.currLocation.directions
-	print(avalibleMoves)
+
 
 while userIn not in quit:
 	userIn = input("What do you do?\n")
@@ -33,7 +29,7 @@ while userIn not in quit:
 		print("You found a key after digging in the sand")
 	elif userIn == "move":
 		direction = input("What direction? (N, E, S, W)")
-		MovePlayer(direction)
+		player.MovePlayer(direction, user.location)
 	elif userIn != 'quit':
 		print("Type 'help' for list of commands")
 	print(userIn)
