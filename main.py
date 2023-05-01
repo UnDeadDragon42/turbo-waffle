@@ -25,8 +25,9 @@ while userIn not in quit:
 	if userIn == "help":
 		userActions.printActions()
 	elif userIn == "search":
-		#need to add in if in this or that room
-		print("You found a key after digging in the sand")
+		user.ChangeInventory(1)
+	elif userIn == "use":
+		user.ChangeInventory(2)
 	elif userIn == "move":
 		direction = input("What direction? (N, E, S, W)")
 		user.MovePlayer(direction)

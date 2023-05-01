@@ -3,17 +3,20 @@ import rooms
 class Player():
 	def __init__(self):
 		self.__location = rooms.outside.name
+		self.inventory = []
 
 	def __str__(self):
 		return self.__location
 
+	#here is getter and setter for player location
+	#although I dont think I need it
 	@property
 	def location(self):
 		return self.__location
 	def location(self, new):
 		self.__location = new
 
-	#moves the player to different rooms
+	#moves the player to different rooms by checking there location and the open directions
 	def MovePlayer(self, direction):
 		numb = -1
 		for c in rooms.totalRooms:
@@ -38,19 +41,16 @@ class Player():
 						if i%2 != 0:
 							print(f"From here you can go {currList[i]}")
 
+	def ChangeInventory(self, dir):
+		for c in rooms.totalRooms:
+			if self.__location == c.name:
+				needList = c.needed
+				if dir == 1: #use
+					if needList in self.inventory:
+						needList.remove(needList)
+				elif dir == 2: #search
+					skip
 
 
 
 
-
-
-#	print(curLocat)
-#	print(rooms.outside)
-#	l = rooms.curLocat
-#	avalibleMoves = l.directions
-#	#print(avalibleMoves)
-#	if curLocat in rooms.totalRooms:
-#		print("AND I")
-#		avalibleMoves = rooms.outside.directions
-#		if direction in avalibleMoves:
-#			print("You made it")
