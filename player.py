@@ -15,10 +15,22 @@ class Player():
 
 	#moves the player to different rooms
 	def MovePlayer(self, direction):
+		numb = -1
 		for c in rooms.totalRooms:
 			if self.__location == c.name:
 				if direction in c.directions:
-					print(c.directions[0])
+					currList = list(c.directions)
+					for i in currList:
+						numb += 1
+						print(f"{numb} this is numb")
+						if direction == i:
+							print(f"{numb} this is numb 2")
+							try:
+								print(f"From {self.__location} to {currList[1]}")
+								self.__location = currList[numb]
+							except IndexError:
+								print(f"You mest up with the location code")
+
 
 
 

@@ -16,7 +16,7 @@ class Rooms():
 		return self.__name
 
 outside = Rooms("outside", 1)
-outside.directions = {"N"}
+outside.directions = {"N", "main hall"}
 outside.objects = "key"
 outside.objectDesriptions = "Rusty circular key, it looks like it has been covered up for a very long time"
 outside.roomdescriptions = {"You stand befor the tome of King Movieses. In front of you stands a door with an oddly shapped key hole, with the entrance steps covered in sand.", "You stand befor the tome of King Movieses, the door way now uncovered. The door is open now leading into darkness that has not been seen for centruies"}
