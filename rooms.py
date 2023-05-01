@@ -1,6 +1,7 @@
 totalRooms = []
 playersLokation = "outside"
 
+#Creats Rooms class that has many different atributes
 class Rooms():
 	def __init__(self, name = 'room', number = 0):
 		self.__name = name
@@ -17,6 +18,9 @@ class Rooms():
 	@property
 	def name(self):
 		return self.__name
+
+
+#Here are all the created rooms
 
 outside = Rooms("outside", 1)
 outside.directions = {"N", "main hall"}
