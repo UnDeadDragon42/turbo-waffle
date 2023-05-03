@@ -77,6 +77,7 @@ obserR.directions = ["S", "dinning hall"]
 obserR.roomdescriptions = {"You stand on a platform that is inside a glass ball. Looking around the room the ball is in shows a huge cave that has a water fall flowing into a big lake with a rasied bridge. In the room you see a botom part of where you would expect a lever to go", "Still in the glass ball looking out to the water fall and river, you see a path across the lowered bridge"}
 obserR.use = ["You attach the lever to the other part on the ground. Afterward you give it a pull and see the brige in the room with the river lower, providing a way to the other side."]
 
+
 totalRooms.append(obserR)
 
 waterR = Rooms("water room", 7)

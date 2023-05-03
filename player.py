@@ -55,6 +55,7 @@ class Player():
 						numb += 1
 				else:
 					print(f"You can't go that way from here.")
+		
 
 	#This is the code that changes the players inventory, out and in
 	#The first part is the use which uses an object from the palyers inventory
@@ -72,6 +73,11 @@ class Player():
 							self.inventory.remove(i)
 							print(f"You used {i}")
 							used = True
+							#this is the speical case for the observertory room,
+							#As a lever is pulled in this room that affects another
+							if self.__location == "observertory":
+								self.inventory.append("Part of a lever")
+								rooms.waterR.blockedDirections.remove("N")
 					if used == False:
 						print("You don't have anything that would be of use here")
 				elif dir == 2: #search
@@ -83,3 +89,4 @@ class Player():
 						print(f"{i}: {c.objectDesriptions}")
 					else:
 						print("There isn't anything of use here")
+
