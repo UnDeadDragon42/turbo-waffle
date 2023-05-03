@@ -41,17 +41,21 @@ class Player():
 						if i%2 != 0:
 							print(f"From here you can go {currList[i]}")
 
+	#This is the code that changes the players inventory, out and in
+	#The first part is the use which uses an object from the palyers inventory
+	#and the second is search
 	def ChangeInventory(self, dir):
 		for c in rooms.totalRooms:
 			if self.__location == c.name:
 				needList = c.needed
 				if dir == 1: #use
 					for i in self.inventory:
-						if i in needList:
-							needList.remove(i)
-							c.blockedDirections = ['none']
-							self.inventory.remove(i)
-							print(f"You used {i}")
+						for x in needList:
+							if i == x:
+								needList.remove(i)
+								c.blockedDirections = ["none"]
+								self.inventory.remove(i)
+								print(f"You used {i}")
 					if needList not in self.inventory:
 						print("You don't have anything that would be of use here")
 				elif dir == 2: #search
