@@ -47,7 +47,7 @@ class Player():
 				needList = c.needed
 				if dir == 1: #use
 					for i in self.inventory:
-						if needList in self.inventory:
+						if i in needList:
 							needList.remove(i)
 							c.blockedDirections = ['none']
 							self.inventory.remove(i)
