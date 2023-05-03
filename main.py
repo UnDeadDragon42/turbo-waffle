@@ -1,11 +1,20 @@
-import intoSeqence
 import userActions
 import player
-import rooms
 
+
+#Need to fix
+#	Intro
+#	Hints maeby
+#	Can't get past the obseveretroy
+#	Game too short
+#		Might add hide mechanic
+#	Add save and load
+print('''\nFinaly after all this time, after all the deception, trickery, and wrong moves you are here. King Movieses tomb
+In front of you stands a large stone door without any handles just a hole on the right door. The steps in front of the door is covered in sand.''')
+      
+	
 userIn = ""
 quit = ("quit", "q")
-intoSeqence.main()
 actions = ('''
 	quit/q - Quit out of the game
 	save/sa - saves the game
