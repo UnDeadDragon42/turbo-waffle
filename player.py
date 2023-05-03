@@ -46,10 +46,22 @@ class Player():
 			if self.__location == c.name:
 				needList = c.needed
 				if dir == 1: #use
-					if needList in self.inventory:
-						needList.remove(needList)
+					for i in self.inventory:
+						if needList in self.inventory:
+							needList.remove(i)
+							c.blockedDirections = ['none']
+							self.inventory.remove(i)
+							print(f"You used {i}")
+					if needList not in self.inventory:
+						print("You don't have anything that would be of use here")
 				elif dir == 2: #search
-					skip
+					if len(c.objects) > 0:
+						for i in c.objects:
+							c.objects.remove(i)
+							self.inventory.append(i)
+						print(f"You pciked up {i}")
+					else:
+						print("There isn't anything of use here")
 
 
 
