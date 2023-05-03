@@ -45,18 +45,19 @@ class Player():
 	#The first part is the use which uses an object from the palyers inventory
 	#and the second is search
 	def ChangeInventory(self, dir):
+		used = False
 		for c in rooms.totalRooms:
 			if self.__location == c.name:
 				needList = c.needed
 				if dir == 1: #use
 					for i in self.inventory:
-						for x in needList:
-							if i == x:
-								needList.remove(i)
-								c.blockedDirections = ["none"]
-								self.inventory.remove(i)
-								print(f"You used {i}")
-					if needList not in self.inventory:
+						if i in needList:
+							needList.remove(i)
+							c.blockedDirections = ["none"]
+							self.inventory.remove(i)
+							print(f"You used {i}")
+							used = True
+					if used == False:
 						print("You don't have anything that would be of use here")
 				elif dir == 2: #search
 					if len(c.objects) > 0:
@@ -64,6 +65,7 @@ class Player():
 							c.objects.remove(i)
 							self.inventory.append(i)
 						print(f"You pciked up {i}")
+						print(f"{i}: {c.objectDesriptions}")
 					else:
 						print("There isn't anything of use here")
 
