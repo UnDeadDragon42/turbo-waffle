@@ -25,9 +25,9 @@ while userIn not in quit:
 	if userIn == "help":
 		userActions.printActions()
 	elif userIn == "search":
-		user.ChangeInventory(1)
-	elif userIn == "use":
 		user.ChangeInventory(2)
+	elif userIn == "use":
+		user.ChangeInventory(1)
 	elif userIn == "move":
 		direction = input("What direction? (N, E, S, W)")
 		user.MovePlayer(direction)
