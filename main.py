@@ -29,7 +29,7 @@ while userIn not in quit:
 	elif userIn == "use":
 		user.ChangeInventory(1)
 	elif userIn == "move":
-		direction = input("What direction? (N, E, S, W)")
+		direction = input("What direction? (N, E, S, W)\n")
 		user.MovePlayer(direction)
 	elif userIn != 'quit':
 		print("Type 'help' for list of commands")
