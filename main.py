@@ -13,7 +13,7 @@ actions = ('''
 	search/s - searches room for items and gets the object 
 	use/u - uses iteam in inventorty
 	hint/h - gives hint in room
-	map/m - lists rooms you have visted with there avalible movments
+	map/m - gives your location
 ''')
 
 user = player.Player()
@@ -24,15 +24,19 @@ while userIn not in quit:
 	userIn = input("What do you do?\n")
 	if userIn == "help":
 		userActions.printActions()
-	elif userIn == "search":
+	elif userIn in ("search", "s"):
 		user.ChangeInventory(2)
-	elif userIn == "use":
+	elif userIn in ("u", "use"):
 		user.ChangeInventory(1)
 	elif userIn == "move":
 		direction = input("What direction? (N, E, S, W)\n")
 		user.MovePlayer(direction)
+	elif userIn == "map":
+		print(user)
+	elif userIn in ("i", "inventory"):
+		a = user.PrintInventory()
+		print(a)
 	elif userIn != 'quit':
 		print("Type 'help' for list of commands")
-	print(userIn)
 
 

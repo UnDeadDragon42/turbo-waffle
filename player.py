@@ -7,6 +7,14 @@ class Player():
 
 	def __str__(self):
 		return self.__location
+	
+	def PrintInventory(self):
+		word = ""
+		for i in range(0, len(self.inventory)):
+			word += self.inventory[i]
+		if word == "":
+			word = "Your bag is empty"
+		return word
 
 	#here is getter and setter for player location
 	#although I dont think I need it
@@ -18,28 +26,35 @@ class Player():
 
 	#moves the player to different rooms by checking there location and the open directions
 	def MovePlayer(self, direction):
-		numb = -1
+		numb = 0
+		found = False
 		for c in rooms.totalRooms:
-			if self.__location == c.name:
-				currList = list(c.directions)
-				blockedList = list(c.blockedDirections)
+			if self.__location == c.name and found == False:
+				currList = c.directions
+				blockedList = c.blockedDirections
 				if direction in c.directions:
 					for i in currList:
-						numb += 1
 						if direction == i:
 							try:
 								if currList[numb] not in blockedList:
-									print(f"From {self.__location} to {currList[numb]}")
+									if currList[numb] in ("N", "E", "S", "W"):
+										numb += 1
+									print(f"Moved from {self.__location} to {currList[numb]}")
 									self.__location = currList[numb]
+									#This is just to describe the new room
+									for wah in rooms.totalRooms:
+										if self.__location == wah.name:
+											roomDe = list(wah.roomdescriptions)
+											print(f"{roomDe[0]}")
+									found = True
 								else:
 									print("There might be a way though but not right now")
 							except IndexError:
 								print(f"You mest up with the location code")
+								print(f"currently accesing {numb} from {currList} of a length of {len(currList) - 1}")
+						numb += 1
 				else:
 					print(f"You can't go that way from here.")
-					for i in range(0, len(currList)):
-						if i%2 != 0:
-							print(f"From here you can go {currList[i]}")
 
 	#This is the code that changes the players inventory, out and in
 	#The first part is the use which uses an object from the palyers inventory
@@ -68,7 +83,3 @@ class Player():
 						print(f"{i}: {c.objectDesriptions}")
 					else:
 						print("There isn't anything of use here")
-
-
-
-
