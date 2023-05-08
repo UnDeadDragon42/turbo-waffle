@@ -28,6 +28,7 @@ class Player():
 	def MovePlayer(self, direction):
 		numb = 0
 		found = False
+		finaly = False
 		for c in rooms.totalRooms:
 			if self.__location == c.name and found == False:
 				currList = c.directions
@@ -43,18 +44,25 @@ class Player():
 									self.__location = currList[numb]
 									#This is just to describe the new room
 									for wah in rooms.totalRooms:
-										if self.__location == wah.name:
+										if self.__location == "tomb" and finaly == False:
+											EndGame()
+											finaly = True
+										elif self.__location == wah.name and self.__location != "tomb":
 											roomDe = list(wah.roomdescriptions)
 											print(f"{roomDe[0]}")
 									found = True
 								else:
 									print("There might be a way though but not right now")
 							except IndexError:
-								print(f"You mest up with the location code")
-								print(f"currently accesing {numb} from {currList} of a length of {len(currList) - 1}")
+								#had to add in if here beacues it kept crashing for some reason but it also worked at the same time
+								if self.__location != "tomb":
+									print(f"You mest up with the location code")
+									print(f"currently accesing {numb} from {currList} of a length of {len(currList) - 1}")
 						numb += 1
 				else:
-					print(f"You can't go that way from here.")
+					#had to add in if here beacues it kept crashing for some reason but it also worked at the same time
+					if self.__location != "tomb":
+						print(f"You can't go that way from here.")
 		
 
 	#This is the code that changes the players inventory, out and in
@@ -72,6 +80,7 @@ class Player():
 							c.blockedDirections = ["none"]
 							self.inventory.remove(i)
 							print(f"You used {i}")
+							print(f"{c.use[0]}")
 							used = True
 							#this is the speical case for the observertory room,
 							#As a lever is pulled in this room that affects another
@@ -85,8 +94,21 @@ class Player():
 						for i in c.objects:
 							c.objects.remove(i)
 							self.inventory.append(i)
-						print(f"You pciked up {i}")
-						print(f"{i}: {c.objectDesriptions}")
+						print(f"{c.objectLoc[0]}")
+						print(f"{i}: {c.objectDesriptions[0]}")
+						print(f"You picked up {i}")
 					else:
 						print("There isn't anything of use here")
 
+	def Admin(self, command, goal):
+		for c in rooms.totalRooms:
+			if command == "clear":
+				c.blockedDirections = []
+			if command == "tp":
+				self.__location = goal
+			if command == "list":
+				print(f"For room {c.name} there is still {c.objects} and need {c.needed}, blocking {c.blockedDirections}")
+
+
+def EndGame():
+	print(f"After truding through the long forgotten tomb, you finally reach it: The Final Resting Place of King Movieses. You scan the room it is by far the most wonderfully decorated room in the tomb. It was obvous that it was once a throne room, along with this tomb used to be a castel. Sitting on the old throne chair was hte sarcofigus of King Movieses. As you move closer to the sarcofoges the throuch you were holding dimmed, the door to the room slide shut. Finally you hear a voice from the sarcofogus, 'What is your quarry?'")
