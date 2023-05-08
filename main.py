@@ -1,5 +1,7 @@
 import userActions
 import player
+import shelve
+import rooms
 
 
 #Need to fix
@@ -57,7 +59,29 @@ while userIn not in quit:
 		else:
 			goal = 'na'
 		user.Admin(cd, goal)
+	elif userIn in ('save'):
+		s = shelve.open('game.bin')
+		s[play] = user
+		s[roomss] = rooms.outside
+		s.sync()
+		s.close()
 	elif userIn != 'quit':
 		print("Type 'help' for list of commands")
+
+#def save(cart):
+#	s = shelve.open('carts.bin')
+#	s[cart.name] = cart
+#	s.sync()
+#	s.close()
+#
+#def load():
+#	name = input("Enter customer's name:\n")
+#	try:
+#		s = shelve.open('carts.bin')
+#		cart = s[name]
+#		s.close()
+#		return cart
+#	except:
+#		return
 
 
