@@ -8,6 +8,12 @@ class Player():
 	def __str__(self):
 		return self.__location
 	
+	def GetLocation(self):
+		return self.__location
+	
+	def GetInventory(self):
+		return self.inventory
+	
 	def PrintInventory(self):
 		word = ""
 		for i in range(0, len(self.inventory)):
@@ -17,7 +23,6 @@ class Player():
 		return word
 
 	#here is getter and setter for player location
-	#although I dont think I need it
 	@property
 	def location(self):
 		return self.__location

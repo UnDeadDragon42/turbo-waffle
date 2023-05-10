@@ -44,11 +44,12 @@ while userIn not in quit:
 	elif userIn == "move":
 		direction = input("What direction? (N, E, S, W)\n")
 		user.MovePlayer(direction)
-		print(f"Players location {user.location}")
+		#print(f"Players location {user.location}")
 		if user.location == "tomb":
 			print("DONE")
 	elif userIn == "map":
 		print(user)
+		print(f"As comapered to {user.GetLocation()}")
 	elif userIn in ("i", "inventory"):
 		a = user.PrintInventory()
 		print(a)
@@ -61,9 +62,23 @@ while userIn not in quit:
 		user.Admin(cd, goal)
 	elif userIn in ('save'):
 		s = shelve.open('game.bin')
-		s[play] = user
-		s[roomss] = rooms.outside
+		s["location"] = user.GetLocation()
+		s["inventory"] = user.GetInventory()
+		s["outsideStuff"] = rooms.outside
+		s["mainHall"] = rooms.mainHall
+		s["watingR"] = rooms.watingR
+		s["dinnH"] = rooms.dinnH
+		s["hiddenR"] = rooms.outside
+		s["obserR"] = rooms.obserR
+		s["waterR"] = rooms.waterR
+		s["tomb"] = rooms.tomb
 		s.sync()
+		s.close()
+		print(f"The outside location has {rooms.outside.needed}")
+		print(f"You saved with {user.GetInventory()} at {user.GetLocation()}")
+	elif userIn in ("l", "load"):
+		s = shelve.open('game.bin')
+		user.location = s["location"]
 		s.close()
 	elif userIn != 'quit':
 		print("Type 'help' for list of commands")
