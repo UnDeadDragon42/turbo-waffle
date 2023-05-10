@@ -21,7 +21,7 @@ class Rooms():
 		return self.__name
 
 
-#Here are all the created rooms
+#Here are all the created rooms and there specified attributes
 
 outside = Rooms("outside", 1)
 outside.directions = ["N", "main hall"]
@@ -98,7 +98,6 @@ In the room you see a botom part of where you would expect a lever to go'''}
 obserR.use = ['''You attach the lever to the other part on the ground. 
 Afterward you give it a pull and see the brige in the room bellow lower, 
 providing a way to the other side.''']
-
 
 totalRooms.append(obserR)
 

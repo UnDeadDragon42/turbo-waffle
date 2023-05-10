@@ -1,21 +1,17 @@
-import userActions
 import player
 import shelve
 import rooms
 
-
 #Need to fix
 #	Intro
 #	Hints maeby
-#	Can't get past the obseveretroy
 #	Game too short
 #		Might add hide mechanic
-#	Add save and load
+
 print('''\nFinaly after all this time, after all the deception, trickery, and wrong moves you are here. 
 King Movieses tomb
 In front of you stands a large stone door without any handles just a hole on the right door. 
 The steps in front of the door is covered in sand.''')
-      
 	
 userIn = ""
 quit = ("quit", "q")
@@ -75,7 +71,7 @@ def EndGame():
 while userIn not in quit:
 	userIn = input("What do you do?\n")
 	if userIn == "help":
-		userActions.printActions()
+		print(actions)
 	elif userIn in ("search", "s"):
 		user.ChangeInventory(2)
 	elif userIn in ("u", "use"):
