@@ -103,14 +103,3 @@ while userIn not in quit:
 		print("Command unknonw try again.")
 
 EndGame()
-#def load():
-#	name = input("Enter customer's name:\n")
-#	try:
-#		s = shelve.open('carts.bin')
-#		cart = s[name]
-#		s.close()
-#		return cart
-#	except:
-#		return
-
-
