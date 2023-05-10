@@ -6,15 +6,15 @@ class Rooms():
 	def __init__(self, name = 'room', number = 0):
 		self.__name = name
 		self.number = number
-		self.directions = []
-		self.blockedDirections = []
-		self.needed = []
-		self.objects = []
-		self.objectLoc = []
-		self.use = []
-		self.objectDesriptions = []
-		self.roomdescriptions = {}
-		self.hints = []
+		self.directions = ["none"]
+		self.blockedDirections = ["none"]
+		self.needed = ["none"]
+		self.objects = ["none"]
+		self.objectLoc = ["none"]
+		self.use = ["none"]
+		self.objectDesriptions = ["none"]
+		self.roomdescriptions = {"none"}
+		self.hints = ["none"]
 
 	@property
 	def name(self):

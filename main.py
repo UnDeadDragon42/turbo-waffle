@@ -1,5 +1,7 @@
 import userActions
 import player
+import shelve
+import rooms
 
 
 #Need to fix
@@ -27,9 +29,48 @@ actions = ('''
 	map/m - gives your location
 ''')
 
+#This is the function to save the game
+def save():
+	s = shelve.open('game.bin')
+	s["location"] = user.GetLocation()
+	s["inventory"] = user.GetInventory()
+	s["outsideStuff"] = rooms.outside
+	s["mainHall"] = rooms.mainHall
+	s["watingR"] = rooms.watingR
+	s["dinnH"] = rooms.dinnH
+	s["hiddenR"] = rooms.hiddenR
+	s["obserR"] = rooms.obserR
+	s["waterR"] = rooms.waterR
+	s["tomb"] = rooms.tomb
+	s.sync()
+	s.close()
+
+#This is the function to load the game
+def load():
+	s = shelve.open('game.bin')
+	user.location(s["location"])
+	user.SetInventorty(s["inventory"])
+	rooms.outside = s["outsideStuff"]
+	rooms.mainHall = s["mainHall"]
+	rooms.watingR = s["watingR"]
+	rooms.dinnH = s["dinnH"]
+	rooms.hiddenR = s["hiddenR"]
+	rooms.obserR = s["obserR"]
+	rooms.waterR = s["waterR"]
+	rooms.tomb = s["tomb"]
+	s.close()
+
 user = player.Player()
 
-
+def EndGame():
+	print(f'''After truding through the long forgotten tomb, 
+	you finally reach it: The Final Resting Place of King Movieses. 
+	You scan the room it is by far the most wonderfully decorated room in the tomb. 
+	It was obvous that it was once a throne room, along with this tomb used to be a castel. 
+	Sitting on the old throne chair was hte sarcofigus of King Movieses. 
+	As you move closer to the sarcofoges the throuch you were holding dimmed, 
+	the door to the room slide shut. 
+	Finally you hear a voice from the sarcofogus, 'What is your quarry?' ''')
 
 while userIn not in quit:
 	userIn = input("What do you do?\n")
@@ -42,8 +83,7 @@ while userIn not in quit:
 	elif userIn == "move":
 		direction = input("What direction? (N, E, S, W)\n")
 		user.MovePlayer(direction)
-		print(f"Players location {user.location}")
-		if user.location == "tomb":
+		if user.GetLocation() == "tomb":
 			print("DONE")
 	elif userIn == "map":
 		print(user)
@@ -57,7 +97,24 @@ while userIn not in quit:
 		else:
 			goal = 'na'
 		user.Admin(cd, goal)
+	elif userIn in ('save'):
+		save()
+	elif userIn in ("l", "load"):
+		load()
 	elif userIn != 'quit':
 		print("Type 'help' for list of commands")
+	else:
+		print("Command unknonw try again.")
+
+EndGame()
+#def load():
+#	name = input("Enter customer's name:\n")
+#	try:
+#		s = shelve.open('carts.bin')
+#		cart = s[name]
+#		s.close()
+#		return cart
+#	except:
+#		return
 
 
