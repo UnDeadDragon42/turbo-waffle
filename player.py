@@ -14,6 +14,9 @@ class Player():
 	def GetInventory(self):
 		return self.inventory
 	
+	def SetInventorty(self, new):
+		self.inventory = new
+
 	def PrintInventory(self):
 		word = ""
 		for i in range(0, len(self.inventory)):
@@ -28,6 +31,14 @@ class Player():
 		return self.__location
 	def location(self, new):
 		self.__location = new
+		print(f"Location is now {self.__location}")
+
+	#getter and setter for player inventory
+	@property
+	def inventory(self):
+		return self.inventory
+	def inventory(self, new):
+		self.inventory = new
 
 	#moves the player to different rooms by checking there location and the open directions
 	def MovePlayer(self, direction):
@@ -50,7 +61,6 @@ class Player():
 									#This is just to describe the new room
 									for wah in rooms.totalRooms:
 										if self.__location == "tomb" and finaly == False:
-											EndGame()
 											finaly = True
 										elif self.__location == wah.name and self.__location != "tomb":
 											roomDe = list(wah.roomdescriptions)
@@ -113,7 +123,3 @@ class Player():
 				self.__location = goal
 			if command == "list":
 				print(f"For room {c.name} there is still {c.objects} and need {c.needed}, blocking {c.blockedDirections}")
-
-
-def EndGame():
-	print(f"After truding through the long forgotten tomb, you finally reach it: The Final Resting Place of King Movieses. You scan the room it is by far the most wonderfully decorated room in the tomb. It was obvous that it was once a throne room, along with this tomb used to be a castel. Sitting on the old throne chair was hte sarcofigus of King Movieses. As you move closer to the sarcofoges the throuch you were holding dimmed, the door to the room slide shut. Finally you hear a voice from the sarcofogus, 'What is your quarry?'")
