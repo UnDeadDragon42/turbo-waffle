@@ -63,8 +63,17 @@ class Player():
 										if self.__location == "tomb" and finaly == False:
 											finaly = True
 										elif self.__location == wah.name and self.__location != "tomb":
-											roomDe = list(wah.roomdescriptions)
-											print(f"{roomDe[0]}")
+											if c.needed != "Nothing":
+												roomDe = list(wah.roomdescriptions)
+												print(f"{roomDe[0]}")
+												print("WADASDASDASDASD")
+											elif c.needed == "Nothing":
+												try:
+													roomDe = list(wah.roomdescriptions)
+													print(f"{roomDe[1]}")
+												except:
+													roomDe = list(wah.roomdescriptions)
+													print(f"{roomDe[0]}")
 									found = True
 								else:
 									print("There might be a way though but not right now")
@@ -92,6 +101,7 @@ class Player():
 					for i in self.inventory:
 						if i in needList:
 							needList.remove(i)
+							needList.append("Nothing")
 							c.blockedDirections = ["none"]
 							self.inventory.remove(i)
 							print(f"You used {i}")
@@ -102,6 +112,7 @@ class Player():
 							if self.__location == "observertory":
 								self.inventory.append("Part of a lever")
 								rooms.waterR.blockedDirections.remove("N")
+								rooms.waterR.needed.append("Nothing")
 					if used == False:
 						print("You don't have anything that would be of use here")
 				elif dir == 2: #search

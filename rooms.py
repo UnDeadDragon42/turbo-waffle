@@ -32,7 +32,7 @@ outside.objectLoc = ["You dig around the steps through the sand and find a key"]
 outside.use = ['''You insert the weird key into the weird lock. Perfect fit. 
 After you turn the key the door opens on its own. Now you can enter''']
 outside.objectDesriptions = ["Rusty circular key, it looks like it has been covered up for a very long time"]
-outside.roomdescriptions = {"You stand befor the tome of King Movieses. In front of you stands a door with an oddly shapped key hole, with the entrance steps covered in sand.", "You stand befor the tome of King Movieses, the door way now uncovered. The door is open now leading into darkness that has not been seen for centruies"}
+outside.roomdescriptions = {"You stand befor the tome of King Movieses. To the north, in front of you, stands a door with an oddly shapped key hole, with the entrance steps covered in sand.", "You stand befor the tome of King Movieses, the door way now uncovered. The door is open now leading into darkness that has not been seen for centruies"}
 
 outside.hints = ["I wonder where the key could be?", "There is a lot of sand", "If only I could move it out of the way."]
 totalRooms.append(outside)
@@ -50,12 +50,13 @@ mainHall.hints = ["I think more could be found in the checking area"]
 totalRooms.append(mainHall)
 
 watingR = Rooms("wating room", 3)
-watingR.directions = ["N", "water room", "S", "main hall"]
+watingR.directions = ["N", "water room", "W", "main hall"]
 watingR.objects = ['hammer']
 watingR.objectLoc = ['''You look around the room for something of use, behind the counter you find an old hammer. Properbly confinscated a long time ago''']
 watingR.objectDesriptions = ["The hammer is big enough that you therioz that it was used for demolition"]
 watingR.roomdescriptions = {'''You stand in a room split in two from your side to the other side, blocked by a booth and a gate. 
-The gate is open, and there is no door on the other side. 
+The gate is open, and there is no door on the other side leading north. 
+To the west behind you leads back to the main hall
 Hopfully something was left here that can be of use'''}
 
 totalRooms.append(watingR)
@@ -73,14 +74,16 @@ dinnH.objectDesriptions = ["The breez dosen't reach hear"]
 dinnH.roomdescriptions = {'''You stand in a large room decotracted with long tables and broken chairs. 
 After a long look you can tell that the walls used to be bueatufly decrated, 
 but they have fadded with time along with some of the walls as well. 
-One section is particualry woren, to the point that it looks like it could be knocked down'''}
+One section is particualry woren, to the point that it looks like it could be knocked down
+There is another hall way heading nothwards, and the path back heading west'''}
 
 dinnH.hints = ["One of the walls looks like it needs a breez to knock it down", "or a hammer"]
 totalRooms.append(dinnH)
 
 hiddenR = Rooms("hidden room", 5)
 hiddenR.directions = ["N", "dinning hall"]
-hiddenR.roomdescriptions = {"This room is quite small and dosen't have much in it except what appers to be scrap metal"}
+hiddenR.roomdescriptions = {'''This room is quite small and dosen't have much in it except what appers to be scrap metal,
+ with the only exit back to the dinning hall, north'''}
 hiddenR.objects = ["Part of a lever"]
 hiddenR.objectLoc = ["In the pile of metal you find one pice that seems to be of use"]
 hiddenR.objectDesriptions = ['''The object is a metal rod with a handel on top,
@@ -94,7 +97,8 @@ obserR.needed = ["Part of a lever"]
 obserR.roomdescriptions = {'''You stand on a platform that is inside a glass ball. 
 Looking around the room the ball is in shows a huge cave 
 that has a water fall flowing into a big lake with a rasied bridge. 
-In the room you see a botom part of where you would expect a lever to go'''}
+In the room you see a botom part of where you would expect a lever to go.
+The only path is the same way in, south to the dinning room'''}
 obserR.use = ['''You attach the lever to the other part on the ground. 
 Afterward you give it a pull and see the brige in the room bellow lower, 
 providing a way to the other side.''']
@@ -107,9 +111,11 @@ waterR.blockedDirections = ["N"]
 waterR.needed = ["Used part of a lever"]
 waterR.roomdescriptions = {'''You are in a large open room, that looks like it was built into a cave. 
 Looking around you see a huge water fall feed into a rapidly flowing river that goes under the moutian this place was built into. 
-The only way across is a bridge that is currently rasied.", "You are in a large open room, that looks like it was built into a cave. 
+The only way across is a bridge that is currently rasied. For now all you can do is head back south to the cheacking room''', 
+'''You are in a large open room, that looks like it was built into a cave. 
 Looking around you see a huge water fall feed into a rapidly flowing river that goes under the moutian this place was built into. 
-The bridge is lowered you can now go across into the most interectly carved door you have come across.'''}
+The bridge is lowered you can now go across into the most interectly carved door you have come across.
+You can still go back south, but to the north across the bridinge lies the finall resting place of King Movieses'''}
 waterR.hints = ["There must be a way to lower that bridge."]
 totalRooms.append(waterR)
 
