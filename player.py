@@ -66,7 +66,6 @@ class Player():
 											if c.needed != "Nothing":
 												roomDe = list(wah.roomdescriptions)
 												print(f"{roomDe[0]}")
-												print("WADASDASDASDASD")
 											elif c.needed == "Nothing":
 												try:
 													roomDe = list(wah.roomdescriptions)
