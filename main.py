@@ -67,10 +67,10 @@ It was obvous that it was once a throne room, along with this tomb used to be a 
 Sitting on the old throne chair was the sarcofigus of Pharaoh Movieses. 
 As you move closer to the sarcofoges the throuch you were holding dimmed, 
 the door to the room slide shut. 
-Finally you hear a voice from the sarcofogus, 'What is your quarry?' ''')
+Finally you hear a voice from the sarcofogus, 'What is your quarry?' \n''')
        
-	print("You think to yourself, 'What do I want?'")
-	quarry = input("Mabey something like money, power, knowelge, to be gone?")
+	print("You think to yourself, 'What do I want?'\n")
+	quarry = input("Mabey something like money, power, knowelge, to be gone?\n")
 	if quarry == "money":
 		print('''You mange to stammer out, "Money! I want money. 
 I came into this crypt to find things that would make me wealthy" 
